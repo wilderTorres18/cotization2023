@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proceso de cotización</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="bg-gray-900">
+
+<div class="min-w-screen min-h-screen flex items-center justify-center px-5 py-5">
+    <div class="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden" style="max-width:1000px">
+        <div class="md:flex w-full">
+
+            <div class="hidden md:flex w-1/2 bg-indigo-500 py-10 px-10 items-center justify-center">
+                <img src="/deploy_cotization/image/cartesian_plane.jpg" alt="Descripción de la imagen" class="max-w-full max-h-full">
+            </div>
+            
+
+            <div class="w-full md:w-1/2 py-10 px-5 md:px-10">
+                <div class="text-center mb-10">
+                    <h1 class="font-bold text-3xl text-gray-900">Proceso de cotización</h1>
+                    <p>Ingrese los datos correspondientes:</p>
+                </div>
+
+                <form id="formularioCotizacion" action="" method="post" class="space-y-4">
+                    <!-- Lado 1 -->
+                    <div class="mb-4">
+                        <label for="verticalSide" class="block text-xs font-semibold px-1 mb-2">Largo (Vertical):</label>
+                        <input type="text" id="verticalSide" name="verticalSide" pattern="^\d+(\.\d{1,2})?$" class="w-full p-2 rounded-lg border-gray-300" placeholder="Largo">
+                    </div>
+
+                    <!-- Lado 2 -->
+                    <div class="mb-4">
+                        <label for="horizontalSide" class="block text-xs font-semibold px-1 mb-2">Ancho (Horizontal):</label>
+                        <input type="text" id="horizontalSide" name="horizontalSide" class="w-full p-2 rounded-lg border-gray-300" placeholder="Ancho">
+                    </div>
+
+                    <!-- Precio por metro cuadrado -->
+                    <div class="mb-4">
+                        <label for="price" class="block text-xs font-semibold px-1 mb-2">Precio por metro cuadrado:</label>
+                        <input type="text" id="price" name="price" class="w-full p-2 rounded-lg border-gray-300" value="10" placeholder="Precio">
+                    </div>
+
+                    <!-- Cortesía -->
+                    <div class="mb-4">
+                        <label for="courtesy" class="block text-xs font-semibold px-1 mb-2">Cortesía:</label>
+                        <input type="text" id="courtesy" name="courtesy" class="w-full p-2 rounded-lg border-gray-300" value="0.1" placeholder="Cortesía">
+                    </div>
+
+                    <!-- Materiales -->
+                    <div class="mb-4">
+                        <label for="materials" class="block text-xs font-semibold px-1 mb-2">Medida de materials:</label>
+                        <input type="text" id="materials" name="materials" class="w-full p-2 rounded-lg border-gray-300"  value="1.2, 3.2, 2.5, 2.2, 1.8" placeholder="Materiales (separados por comas)">
+                    </div>
+
+                    <!-- Precio de merma -->
+                    <div class="mb-4">
+                        <label for="wastePrice" class="block text-xs font-semibold px-1 mb-2">Precio de Merma:</label>
+                        <input type="text" id="wastePrice" name="wastePrice" class="w-full p-2 rounded-lg border-gray-300" value="5" placeholder="Precio de merma">
+                    </div>
+
+                    <div class="mb-4 text-center">
+                        <button type="button" onclick="limpiarCampos()" class="bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg px-4 py-2 transition duration-300">Limpiar Filtros</button>
+                        <button type="button" onclick="calcularAutomatico()" class="bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg px-4 py-2 transition duration-300">Automático</button>
+                        <button type="button" onclick="calcularConEleccion()" class="bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg px-4 py-2 transition duration-300">Elección</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="scripts.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</body>
+</html>
